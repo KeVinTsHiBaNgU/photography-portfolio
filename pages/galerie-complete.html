@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie complète – Kevin Photo</title>
+  <link rel="stylesheet" href="../assets/css/galerie_complete.css " />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html#home" class="nav__logo">Kevin Photo</a>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+        <i class="uil uil-bars"></i>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html#home" class="nav__link">Accueil</a></li>
+          <li><a href="../index.html#about" class="nav__link">À propos</a></li>
+          <li><a href="../index.html#gallery" class="nav__link">Galerie</a></li>
+          <li><a href="../index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery-full section">
+      <h2 class="section__title">Toutes les photos</h2>
+      <div class="gallery__categories container">
+        <button class="gallery__filter active" data-filter="all">Tout</button>
+        <button class="gallery__filter" data-filter="portrait">Portrait</button>
+        <button class="gallery__filter" data-filter="mariage">Mariage</button>
+        <!-- <button class="gallery__filter" data-filter="voyage">Voyage</button> -->
+        <button class="gallery__filter" data-filter="smile">Smile</button>
+        <button class="gallery__filter" data-filter="autres">Autres</button>
+      </div>
+
+      <div class="gallery__grid container">
+        <!-- Exemple photos (tu peux dupliquer et changer les sources + catégories) -->
+        <div class="gallery__item" data-category="portrait"><img src="../assets/img/portrait1.jpg" alt="Portrait 1" /></div>
+        <div class="gallery__item" data-category="mariage"><img src="../assets/img/mariage1.jpg" alt="Mariage 1" /></div>
+        <div class="gallery__item" data-category="smile"><img src="../assets/img/sourire1.jpg" alt="Smile 1" /></div>
+        <div class="gallery__item" data-category="portrait"><img src="../assets/img/portrait2.jpg" alt="Portrait 2" /></div>
+        <div class="gallery__item" data-category="mariage"><img src="../assets/img/mariage2.jpg" alt="Mariage 2" /></div>
+        <div class="gallery__item" data-category="smile"><img src="../assets/img/sourire2.jpg" alt="Voyage 2" /></div>
+        <div class="gallery__item" data-category="portrait"><img src="../assets/img/portrait3.jpg" alt="Portrait 3" /></div>
+        <div class="gallery__item" data-category="smile"><img src="../assets/img/sourire3.jpg" alt="Smile 3" /></div>
+        <div class="gallery__item" data-category="portrait"><img src="../assets/img/portrait4.jpg" alt="Portrait 4" /></div>
+        <div class="gallery__item" data-category="smile"><img src="../assets/img/sourire4.jpg" alt="Smile 2" /></div>
+        <div class="gallery__item" data-category="autres"><img src="../assets/img/autres1.jpg" alt="Autres 1" /></div>
+        <div class="gallery__item" data-category="autres"><img src="../assets/img/autres2.jpg" alt="Autres 2" /></div>
+        <div class="gallery__item" data-category="autres"><img src="../assets/img/autres3.jpg" alt="Autres 3" /></div>
+        <div class="gallery__item" data-category="autres"><img src="../assets/img/autres4.jpg" alt="Autres 4" /></div>
+        <div class="gallery__item" data-category="autres"><img src="../assets/img/autres5.jpg" alt="Autres 5" /></div>
+        <div class="gallery__item" data-category="autres"><img src="../assets/img/autres6.jpg" alt="Autres 6" /></div>
+        <div class="gallery__item" data-category="autres"><img src="../assets/img/autres7.jpg" alt="Autres 7" /></div>
+        <div class="gallery__item" data-category="autres"><img src="../assets/img/autres8.jpg" alt="Autres 8" /></div>
+        <!-- Ajoute d'autres images ici -->
+      </div>
+    </section>
+  </main>
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox__close" id="lightbox-close">&times;</span>
+    <img src="" alt="Image agrandie" class="lightbox__img" id="lightbox-img">
+    <span class="lightbox__prev" id="lightbox-prev">&#10094;</span>
+    <span class="lightbox__next" id="lightbox-next">&#10095;</span>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Kevin Tshibangu - Tous droits réservés</p>
+  </footer>
+  <!--================== LIGHTBOX ==================-->
+
+
+  <script src="../assets/js/gallery-complete.js"></script>
+</body>
+
+</html>

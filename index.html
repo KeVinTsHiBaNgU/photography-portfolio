@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kevin Tshibangu - Photographie</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 
@@ -13,6 +13,11 @@
   <header class="header" id="header">
     <nav class="nav container">
       <a href="#home" class="nav__logo">Kevin Photo</a>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+        <i class="uil uil-bars"></i>
+      </button>
+
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
           <li><a href="#home" class="nav__link">Accueil</a></li>
@@ -20,12 +25,10 @@
           <li><a href="#gallery" class="nav__link">Galerie</a></li>
           <li><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="uil uil-apps"></i>
-        </div>
       </div>
     </nav>
   </header>
+
 
   <main>
     <section class="home section" id="home">
@@ -37,11 +40,12 @@
 
     <section class="about section" id="about">
       <div class="about__container container">
-        <img src="img/about.jpg" alt="Kevin" class="about__img">
+        <img src="./assets/img/about.jpg" alt="Kevin" class="about__img">
         <div class="about__data">
           <h2 class="section__title">À propos de moi</h2>
           <p class="about__description">
-            Passionné de photographie, je capture des émotions, des moments uniques et des paysages inspirants à travers mon objectif.
+            Passionné de photographie, je capture des émotions, des moments uniques et des paysages inspirants à travers
+            mon objectif.
           </p>
         </div>
       </div>
@@ -50,12 +54,18 @@
     <section class="gallery section" id="gallery">
       <h2 class="section__title">Galerie</h2>
       <div class="gallery__container container">
-        <div class="gallery__item"><img src="img/portrait1.jpg" alt="Portrait"></div>
-        <div class="gallery__item"><img src="img/mariage1.jpg" alt="Mariage"></div>
-        <div class="gallery__item"><img src="img/voyage1.jpg" alt="Voyage"></div>
-        <div class="gallery__item"><img src="img/portrait2.jpg" alt="Portrait"></div>
-        <div class="gallery__item"><img src="img/mariage2.jpg" alt="Mariage"></div>
-        <div class="gallery__item"><img src="img/voyage2.jpg" alt="Voyage"></div>
+        <div class="gallery__item"><img src="./assets/img/portrait1.jpg" alt="Portrait"></div>
+        <div class="gallery__item"><img src="./assets/img/mariage1.jpg" alt="Mariage"></div>
+        <div class="gallery__item"><img src="./assets/img/sourire1.jpg" alt="Smile"></div>
+        <div class="gallery__item"><img src="./assets/img/portrait2.jpg" alt="Portrait"></div>
+        <div class="gallery__item"><img src="./assets/img/mariage2.jpg" alt="Mariage"></div>
+        <div class="gallery__item"><img src="./assets/img/sourire2.jpg" alt="Smile"></div>
+        <div class="gallery__item"><img src="./assets/img/portrait3.jpg" alt="Portrait"></div>
+        <div class="gallery__item"><img src="./assets/img/sourire3.jpg" alt="Smile"></div> 
+      </div>
+      <div class="gallery__more">
+        <a href="./pages/galerie-complete.html" class="button button--flex">Voir toutes les photos <i
+            class="uil uil-arrow-right"></i></a>
       </div>
     </section>
 
@@ -72,6 +82,15 @@
     <p>&copy; 2025 Kevin Tshibangu - Tous droits réservés</p>
   </footer>
 
-  <script src="./js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script>
+    fetch('./pages/navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+      });
+  </script>
+
 </body>
+
 </html>
