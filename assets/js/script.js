@@ -1,9 +1,9 @@
 // === Background slider for #home ===
 const homeSection = document.querySelector('.home');
 const backgrounds = [
-  './assets/img/sourires/sourire2.jpg',
-  './assets/img/portraits/portrait2.jpg',
-  './assets/img/mariages/mariage1.jpg',
+  './assets/img/accueil/accueil1.jpg',
+  './assets/img/accueil/accueil2.jpg',
+  './assets/img/accueil/accueil3.jpg',
   './assets/img/mariages/mariage2.jpg',
 ];
 
