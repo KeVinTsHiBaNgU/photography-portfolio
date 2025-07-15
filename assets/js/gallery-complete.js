@@ -1,5 +1,85 @@
 
 // gallery-complete.js
+// Configuration des catégories et du nombre d'images estimé
+
+// Liste des catégories avec leurs chemins et préfixes
+const categories = {
+  portrait: { path: "../assets/img/portraits/", prefix: "portrait" },
+  mariage: { path: "../assets/img/mariages/", prefix: "mariage" },
+  smile: { path: "../assets/img/sourires/", prefix: "sourire" },
+  autres: { path: "../assets/img/autres/", prefix: "autres" },
+  shoot: { path: "../assets/img/shootings/", prefix: "shoot" },
+};
+
+// Vérifie si une image existe sans générer d'erreur dans la console
+function imageExists(src) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = src;
+  });
+}
+
+// Charge les images d'une catégorie jusqu'à ce qu'il n'y en ait plus
+async function loadCategoryImages(categoryKey, config, maxTries = 100) {
+  const container = document.getElementById("gallery-container");
+
+  for (let i = 1; i <= maxTries; i++) {
+    const src = `${config.path}${config.prefix}${i}.jpg`;
+    const exists = await imageExists(src);
+
+    if (!exists) break;
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = `${categoryKey} ${i}`;
+
+    const div = document.createElement("div");
+    div.classList.add("gallery__item");
+    div.dataset.category = categoryKey;
+    div.appendChild(img);
+
+    container.appendChild(div);
+  }
+}
+
+// Charge toutes les images de toutes les catégories
+async function loadGalleryImages() {
+  for (const [categoryKey, config] of Object.entries(categories)) {
+    await loadCategoryImages(categoryKey, config);
+  }
+}
+
+// Ajoute le système de filtre des boutons
+function setupFiltering() {
+  const filters = document.querySelectorAll(".gallery__filter");
+
+  filters.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Active uniquement le bouton cliqué
+      filters.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+      const items = document.querySelectorAll(".gallery__item");
+
+      items.forEach((item) => {
+        item.style.display =
+          filter === "all" || item.dataset.category === filter
+            ? "block"
+            : "none";
+      });
+    });
+  });
+}
+
+// Initialisation au chargement
+window.addEventListener("DOMContentLoaded", () => {
+  loadGalleryImages();
+  setupFiltering();
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const filters = document.querySelectorAll(".gallery__filter");
   const items = document.querySelectorAll(".gallery__item");
